@@ -1,0 +1,58 @@
+alex@alex-pc:~$ touch Pets.txt
+alex@alex-pc:~$ nano Pets.txt
+alex@alex-pc:~$ cat Pets.txt
+1 Sharik Dog 2018-03-02 Sit/Lie
+2 Chak Dog 2020-04-18 Sit/Voice
+3 Mukhtar Dog 2022-09-28 Sit/Aport
+4 Barsik Cat 2023-05-07 Come/Eat
+5 Tishka Cat 2017-11-02 Come/Lie
+6 Murzik Cat 2020-12-04 Come/Jump
+7 Jerry Hamster 2023-10-01 Roll/Hide
+8 Toffy Hamster 2022-04-18 Roll/Spin
+9 Pushok Hamster 2020-01-15 Roll/Take
+
+alex@alex-pc:~$ touch PackAnimals.txt
+alex@alex-pc:~$ nano PackAnimals.txt
+alex@alex-pc:~$ cat PackAnimals.txt
+1 Altair Horse 2018-05-04 Walk/Run
+2 Mars Horse 2023-02-15 Walk/Jump
+3 Timur Horse 2022-08-03 Walk/Lie
+4 Vasya Camel 2020-07-05 Walk/Sit
+5 Kelvin Camel 2015-07-03 Walk/Carry
+6 Alex Camel 2017-06-19 Walk/Spit
+7 Grey Donkey 2022-11-29 Walk/Carry
+8 Barash Donkey 2021-06-15 Walk/Bray
+9 Artur Donkey 2020-10-24 Walk/Stay
+
+alex@alex-pc:~$ cat Pets.txt PackAnimals.txt > UnitedAnimals.txt
+alex@alex-pc:~$ cat UnitedAnimals.txt
+1 Sharik Dog 2018-03-02 Sit/Lie
+2 Chak Dog 2020-04-18 Sit/Voice
+3 Mukhtar Dog 2022-09-28 Sit/Aport
+4 Barsik Cat 2023-05-07 Come/Eat
+5 Tishka Cat 2017-11-02 Come/Lie
+6 Murzik Cat 2020-12-04 Come/Jump
+7 Jerry Hamster 2023-10-01 Roll/Hide
+8 Toffy Hamster 2022-04-18 Roll/Spin
+9 Pushok Hamster 2020-01-15 Roll/Take
+1 Altair Horse 2018-05-04 Walk/Run
+2 Mars Horse 2023-02-15 Walk/Jump
+3 Timur Horse 2022-08-03 Walk/Lie
+4 Vasya Camel 2020-07-05 Walk/Sit
+5 Kelvin Camel 2015-07-03 Walk/Carry
+6 Alex Camel 2017-06-19 Walk/Spit
+7 Grey Donkey 2022-11-29 Walk/Carry
+8 Barash Donkey 2021-06-15 Walk/Bray
+9 Artur Donkey 2020-10-24 Walk/Stay
+
+alex@alex-pc:~$ mv UnitedAnimals.txt HumanFriends.txt
+alex@alex-pc:~$ ls
+ cont1log.log                             PackAnimals.txt   Изображения
+ docker-compose.yml                       Pets.txt          Музыка
+ gb                                       python-docker     Общедоступные
+ google-chrome-stable_current_amd64.deb   snap             'Рабочий стол'
+ HumanFriends.txt                         Видео             Шаблоны
+ java-docker                              Документы
+ mydb                                     Загрузки
+alex@alex-pc:~$ 
+

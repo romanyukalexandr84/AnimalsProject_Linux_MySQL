@@ -1,0 +1,7 @@
+alex@alex-pc:~$ mkdir NewDirectory
+alex@alex-pc:~$ mv HumanFriends.txt NewDirectory
+alex@alex-pc:~$ cd NewDirectory
+alex@alex-pc:~/NewDirectory$ ls
+HumanFriends.txt
+alex@alex-pc:~/NewDirectory$ 
+
