@@ -1,0 +1,241 @@
+alex@alex-pc:~$ sudo mysql
+[sudo] пароль для alex: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.35-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| pictures           |
+| students           |
+| sys                |
+| vk                 |
++--------------------+
+8 rows in set (0,00 sec)
+
+mysql> CREATE database HumanFriends;
+Query OK, 1 row affected (0,01 sec)
+
+mysql> USE HumanFriends;
+Database changed
+mysql> CREATE table dogs (ID int PRIMARY KEY, name varchar(10), type varchar(10), birthdate date, commands varchar(30));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> INSERT INTO dogs VALUES (1, 'Sharik', 'Dog', '2018-03-02', 'Sit/Lie');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO dogs VALUES (2, 'Chak', 'Dog', '2020-04-18', 'Sit/Voice');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO dogs VALUES (3, 'Mukhtar', 'Dog', '2022-09-28', 'Sit/Aport');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM dogs;
++----+---------+------+------------+-----------+
+| ID | name    | type | birthdate  | commands  |
++----+---------+------+------------+-----------+
+|  1 | Sharik  | Dog  | 2018-03-02 | Sit/Lie   |
+|  2 | Chak    | Dog  | 2020-04-18 | Sit/Voice |
+|  3 | Mukhtar | Dog  | 2022-09-28 | Sit/Aport |
++----+---------+------+------------+-----------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE table cats (ID int PRIMARY KEY, name varchar(10), type varchar(10), birthdate
+ date, commands varchar(30));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> INSERT INTO cats VALUES (4, 'Barsik', 'Cat', '2023-05-07', 'Come/Eat');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO cats VALUES (5, 'Tishka', 'Cat', '2017-11-02', 'Come/Lie');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO cats VALUES (6, 'Murzik', 'Cat', '2020-12-04', 'Come/Jump');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM cats;
++----+--------+------+------------+-----------+
+| ID | name   | type | birthdate  | commands  |
++----+--------+------+------------+-----------+
+|  4 | Barsik | Cat  | 2023-05-07 | Come/Eat  |
+|  5 | Tishka | Cat  | 2017-11-02 | Come/Lie  |
+|  6 | Murzik | Cat  | 2020-12-04 | Come/Jump |
++----+--------+------+------------+-----------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE table hamsters (ID int PRIMARY KEY, name varchar(10), type varchar(10), birth
+date date, commands varchar(30));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> INSERT INTO hamsters VALUES (7, 'Jerry', 'Hamster', '2023-10-01', 'Roll/Hide');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO hamsters VALUES (8, 'Toffy', 'Hamster', '2022-04-18', 'Roll/Spin');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO hamsters VALUES (9, 'Pushok', 'Hamster', '2020-01-15', 'Roll/Take');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM hamsters;
++----+--------+---------+------------+-----------+
+| ID | name   | type    | birthdate  | commands  |
++----+--------+---------+------------+-----------+
+|  7 | Jerry  | Hamster | 2023-10-01 | Roll/Hide |
+|  8 | Toffy  | Hamster | 2022-04-18 | Roll/Spin |
+|  9 | Pushok | Hamster | 2020-01-15 | Roll/Take |
++----+--------+---------+------------+-----------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE table horses (ID int PRIMARY KEY, name varchar(10), type varchar(10), birthda
+te date, commands varchar(30));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> INSERT INTO horses VALUES (10, 'Altair', 'Horse', '2018-05-04', 'Walk/Run');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO horses VALUES (11, 'Mars', 'Horse', '2023-02-15', 'Walk/Jump');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO horses VALUES (12, 'Timur', 'Horse', '2022-08-03', 'Walk/Lie');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM horses;
++----+--------+-------+------------+-----------+
+| ID | name   | type  | birthdate  | commands  |
++----+--------+-------+------------+-----------+
+| 10 | Altair | Horse | 2018-05-04 | Walk/Run  |
+| 11 | Mars   | Horse | 2023-02-15 | Walk/Jump |
+| 12 | Timur  | Horse | 2022-08-03 | Walk/Lie  |
++----+--------+-------+------------+-----------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE table camels (ID int PRIMARY KEY, name varchar(10), type varchar(10), birthda
+te date, commands varchar(30));
+Query OK, 0 rows affected (0,03 sec)
+
+mysql> INSERT INTO camels VALUES (13, 'Vasya', 'Camel', '2020-07-05', 'Walk/Sit');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO camels VALUES (14, 'Kelvin', 'Camel', '2015-07-03', 'Walk/Carry');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO camels VALUES (15, 'Alex', 'Camel', '2017-06-19', 'Walk/Spit');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> SELECT * FROM camels;
++----+--------+-------+------------+------------+
+| ID | name   | type  | birthdate  | commands   |
++----+--------+-------+------------+------------+
+| 13 | Vasya  | Camel | 2020-07-05 | Walk/Sit   |
+| 14 | Kelvin | Camel | 2015-07-03 | Walk/Carry |
+| 15 | Alex   | Camel | 2017-06-19 | Walk/Spit  |
++----+--------+-------+------------+------------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE table donkeys (ID int PRIMARY KEY, name varchar(10), type varchar(10), birthd
+ate date, commands varchar(30));
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> INSERT INTO donkeys VALUES (16, 'Grey', 'Donkey', '2022-11-29', 'Walk/Carry');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO donkeys VALUES (17, 'Barash', 'Donkey', '2021-06-15', 'Walk/Bray');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO donkeys VALUES (18, 'Artur', 'Donkey', '2020-10-24', 'Walk/Stay');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> SELECT * FROM donkeys;
++----+--------+--------+------------+------------+
+| ID | name   | type   | birthdate  | commands   |
++----+--------+--------+------------+------------+
+| 16 | Grey   | Donkey | 2022-11-29 | Walk/Carry |
+| 17 | Barash | Donkey | 2021-06-15 | Walk/Bray  |
+| 18 | Artur  | Donkey | 2020-10-24 | Walk/Stay  |
++----+--------+--------+------------+------------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE VIEW pets AS SELECT * FROM dogs UNION ALL SELECT * FROM cats UNION ALL SELECT * FROM hamsters;
+Query OK, 0 rows affected (0,00 sec)
+
+mysql> SELECT * FROM pets;
++----+---------+---------+------------+-----------+
+| ID | name    | type    | birthdate  | commands  |
++----+---------+---------+------------+-----------+
+|  1 | Sharik  | Dog     | 2018-03-02 | Sit/Lie   |
+|  2 | Chak    | Dog     | 2020-04-18 | Sit/Voice |
+|  3 | Mukhtar | Dog     | 2022-09-28 | Sit/Aport |
+|  4 | Barsik  | Cat     | 2023-05-07 | Come/Eat  |
+|  5 | Tishka  | Cat     | 2017-11-02 | Come/Lie  |
+|  6 | Murzik  | Cat     | 2020-12-04 | Come/Jump |
+|  7 | Jerry   | Hamster | 2023-10-01 | Roll/Hide |
+|  8 | Toffy   | Hamster | 2022-04-18 | Roll/Spin |
+|  9 | Pushok  | Hamster | 2020-01-15 | Roll/Take |
++----+---------+---------+------------+-----------+
+9 rows in set (0,00 sec)
+
+mysql> CREATE VIEW packAnimals AS SELECT * FROM horses UNION ALL SELECT * FROM camels UNION ALL SELECT * FROM donkeys;
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> SELECT * FROM packAnimals;
++----+--------+--------+------------+------------+
+| ID | name   | type   | birthdate  | commands   |
++----+--------+--------+------------+------------+
+| 10 | Altair | Horse  | 2018-05-04 | Walk/Run   |
+| 11 | Mars   | Horse  | 2023-02-15 | Walk/Jump  |
+| 12 | Timur  | Horse  | 2022-08-03 | Walk/Lie   |
+| 13 | Vasya  | Camel  | 2020-07-05 | Walk/Sit   |
+| 14 | Kelvin | Camel  | 2015-07-03 | Walk/Carry |
+| 15 | Alex   | Camel  | 2017-06-19 | Walk/Spit  |
+| 16 | Grey   | Donkey | 2022-11-29 | Walk/Carry |
+| 17 | Barash | Donkey | 2021-06-15 | Walk/Bray  |
+| 18 | Artur  | Donkey | 2020-10-24 | Walk/Stay  |
++----+--------+--------+------------+------------+
+9 rows in set (0,00 sec)
+
+mysql> CREATE VIEW animals AS SELECT * FROM pets UNION ALL SELECT * FROM packAnimals;
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> SELECT * FROM animals;
++----+---------+---------+------------+------------+
+| ID | name    | type    | birthdate  | commands   |
++----+---------+---------+------------+------------+
+|  1 | Sharik  | Dog     | 2018-03-02 | Sit/Lie    |
+|  2 | Chak    | Dog     | 2020-04-18 | Sit/Voice  |
+|  3 | Mukhtar | Dog     | 2022-09-28 | Sit/Aport  |
+|  4 | Barsik  | Cat     | 2023-05-07 | Come/Eat   |
+|  5 | Tishka  | Cat     | 2017-11-02 | Come/Lie   |
+|  6 | Murzik  | Cat     | 2020-12-04 | Come/Jump  |
+|  7 | Jerry   | Hamster | 2023-10-01 | Roll/Hide  |
+|  8 | Toffy   | Hamster | 2022-04-18 | Roll/Spin  |
+|  9 | Pushok  | Hamster | 2020-01-15 | Roll/Take  |
+| 10 | Altair  | Horse   | 2018-05-04 | Walk/Run   |
+| 11 | Mars    | Horse   | 2023-02-15 | Walk/Jump  |
+| 12 | Timur   | Horse   | 2022-08-03 | Walk/Lie   |
+| 13 | Vasya   | Camel   | 2020-07-05 | Walk/Sit   |
+| 14 | Kelvin  | Camel   | 2015-07-03 | Walk/Carry |
+| 15 | Alex    | Camel   | 2017-06-19 | Walk/Spit  |
+| 16 | Grey    | Donkey  | 2022-11-29 | Walk/Carry |
+| 17 | Barash  | Donkey  | 2021-06-15 | Walk/Bray  |
+| 18 | Artur   | Donkey  | 2020-10-24 | Walk/Stay  |
++----+---------+---------+------------+------------+
+18 rows in set (0,00 sec)
+
+mysql> exit
+Bye
+alex@alex-pc:~$ 
+

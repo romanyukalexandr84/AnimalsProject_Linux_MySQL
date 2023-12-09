@@ -1,0 +1,124 @@
+alex@alex-pc:~$ sudo mysql
+[sudo] пароль для alex: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.35-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| HumanFriends       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| pictures           |
+| students           |
+| sys                |
+| vk                 |
++--------------------+
+9 rows in set (0,00 sec)
+
+mysql> USE HumanFriends;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> DELETE FROM camels;
+Query OK, 3 rows affected (0,00 sec)
+
+mysql> SELECT * FROM camels;
+Empty set (0,00 sec)
+
+mysql> CREATE TABLE horsesAndDonkeys SELECT * FROM horses UNION ALL SELECT * from donkeys;
+Query OK, 6 rows affected (0,01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM horsesAndDonkeys;
++----+--------+--------+------------+------------+
+| ID | name   | type   | birthdate  | commands   |
++----+--------+--------+------------+------------+
+| 10 | Altair | Horse  | 2018-05-04 | Walk/Run   |
+| 11 | Mars   | Horse  | 2023-02-15 | Walk/Jump  |
+| 12 | Timur  | Horse  | 2022-08-03 | Walk/Lie   |
+| 16 | Grey   | Donkey | 2022-11-29 | Walk/Carry |
+| 17 | Barash | Donkey | 2021-06-15 | Walk/Bray  |
+| 18 | Artur  | Donkey | 2020-10-24 | Walk/Stay  |
++----+--------+--------+------------+------------+
+6 rows in set (0,00 sec)
+
+mysql> CREATE TABLE youngAnimals SELECT * FROM animals WHERE DATEDIFF(CURRENT_DATE(), birthdate) / 365 * 12 BETWEEN 12 AND 36;
+Query OK, 5 rows affected (0,02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *, CONCAT(FLOOR(DATEDIFF(CURRENT_DATE(), birthdate) / 365), ' лет ', ROUND(DATEDIFF(CURRENT_DATE(), birthdate) % 365 * 12 / 365, 0), ' месяцев') AS age FROM youngAnimals;
++----+---------+---------+------------+------------+---------------------------+
+| ID | name    | type    | birthdate  | commands   | age                       |
++----+---------+---------+------------+------------+---------------------------+
+|  3 | Mukhtar | Dog     | 2022-09-28 | Sit/Aport  | 1 лет 2 месяцев           |
+|  8 | Toffy   | Hamster | 2022-04-18 | Roll/Spin  | 1 лет 8 месяцев           |
+| 12 | Timur   | Horse   | 2022-08-03 | Walk/Lie   | 1 лет 4 месяцев           |
+| 16 | Grey    | Donkey  | 2022-11-29 | Walk/Carry | 1 лет 0 месяцев           |
+| 17 | Barash  | Donkey  | 2021-06-15 | Walk/Bray  | 2 лет 6 месяцев           |
++----+---------+---------+------------+------------+---------------------------+
+5 rows in set (0,00 sec)
+
+mysql> CREATE TABLE unitedTable 
+    -> SELECT *, 'dogs' AS originalTable FROM dogs 
+    -> UNION ALL SELECT *, 'cats' AS originalTable FROM cats
+    -> UNION ALL SELECT *, 'hamsters' AS originalTable FROM hamsters
+    -> UNION ALL SELECT *, 'horses' AS originalTable FROM horses
+    -> UNION ALL SELECT *, 'camels' AS originalTable FROM camels
+    -> UNION ALL SELECT *, 'donkeys' AS originalTable FROM donkeys
+    -> UNION ALL SELECT *, 'horsesAndDonkeys' AS originalTable FROM horsesAndDonkeys
+    -> UNION ALL SELECT *, 'youngAnimals' AS originalTable FROM youngAnimals;
+Query OK, 26 rows affected (0,02 sec)
+Records: 26  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM unitedTable;
++----+---------+---------+------------+------------+------------------+
+| ID | name    | type    | birthdate  | commands   | originalTable    |
++----+---------+---------+------------+------------+------------------+
+|  1 | Sharik  | Dog     | 2018-03-02 | Sit/Lie    | dogs             |
+|  2 | Chak    | Dog     | 2020-04-18 | Sit/Voice  | dogs             |
+|  3 | Mukhtar | Dog     | 2022-09-28 | Sit/Aport  | dogs             |
+|  4 | Barsik  | Cat     | 2023-05-07 | Come/Eat   | cats             |
+|  5 | Tishka  | Cat     | 2017-11-02 | Come/Lie   | cats             |
+|  6 | Murzik  | Cat     | 2020-12-04 | Come/Jump  | cats             |
+|  7 | Jerry   | Hamster | 2023-10-01 | Roll/Hide  | hamsters         |
+|  8 | Toffy   | Hamster | 2022-04-18 | Roll/Spin  | hamsters         |
+|  9 | Pushok  | Hamster | 2020-01-15 | Roll/Take  | hamsters         |
+| 10 | Altair  | Horse   | 2018-05-04 | Walk/Run   | horses           |
+| 11 | Mars    | Horse   | 2023-02-15 | Walk/Jump  | horses           |
+| 12 | Timur   | Horse   | 2022-08-03 | Walk/Lie   | horses           |
+| 16 | Grey    | Donkey  | 2022-11-29 | Walk/Carry | donkeys          |
+| 17 | Barash  | Donkey  | 2021-06-15 | Walk/Bray  | donkeys          |
+| 18 | Artur   | Donkey  | 2020-10-24 | Walk/Stay  | donkeys          |
+| 10 | Altair  | Horse   | 2018-05-04 | Walk/Run   | horsesAndDonkeys |
+| 11 | Mars    | Horse   | 2023-02-15 | Walk/Jump  | horsesAndDonkeys |
+| 12 | Timur   | Horse   | 2022-08-03 | Walk/Lie   | horsesAndDonkeys |
+| 16 | Grey    | Donkey  | 2022-11-29 | Walk/Carry | horsesAndDonkeys |
+| 17 | Barash  | Donkey  | 2021-06-15 | Walk/Bray  | horsesAndDonkeys |
+| 18 | Artur   | Donkey  | 2020-10-24 | Walk/Stay  | horsesAndDonkeys |
+|  3 | Mukhtar | Dog     | 2022-09-28 | Sit/Aport  | youngAnimals     |
+|  8 | Toffy   | Hamster | 2022-04-18 | Roll/Spin  | youngAnimals     |
+| 12 | Timur   | Horse   | 2022-08-03 | Walk/Lie   | youngAnimals     |
+| 16 | Grey    | Donkey  | 2022-11-29 | Walk/Carry | youngAnimals     |
+| 17 | Barash  | Donkey  | 2021-06-15 | Walk/Bray  | youngAnimals     |
++----+---------+---------+------------+------------+------------------+
+26 rows in set (0,01 sec)
+
+mysql> exit
+Bye
+alex@alex-pc:~$ 
+
+
